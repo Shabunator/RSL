@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+    background: #222222;
+    color: white;
+    font-size: 18px;
+}
+
+.right-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-block div:first-child {
+    margin-right: 90px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+
+}
