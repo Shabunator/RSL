@@ -29,8 +29,8 @@ public class UserController {
      * @param login
      * @return
      */
-    @GetMapping
-    public RestResponse<User> getByLogin(String login) {
+    @GetMapping("login={login}")
+    public RestResponse<User> getByLogin(@PathVariable("login") String login) {
 
         return new RestResponse<>(
                 HttpStatus.OK,
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping
-    public RestResponse<User> save(User user) {
+    public RestResponse<User> save(@RequestBody User user) {
         return new RestResponse<>(
                 HttpStatus.OK,
                 "save",
@@ -53,7 +53,7 @@ public class UserController {
      * @param user
      * @return
      */
-    @DeleteMapping("(id)")
+    @DeleteMapping("user={id}")
     public RestResponse<User> delete (@PathVariable("id") User user) {
         return new RestResponse<>(
                 HttpStatus.OK,
@@ -81,7 +81,7 @@ public class UserController {
         );
     }
 
-    @DeleteMapping("user={user_id}&resume={resume_id}")
+    @PutMapping("user={user_id}&resume={resume_id}")
     public RestResponse<Resume> deleteResume(@PathVariable("user_id") User user, @PathVariable("resume_id") Resume resume) {
         return new RestResponse<>(
                 HttpStatus.OK,

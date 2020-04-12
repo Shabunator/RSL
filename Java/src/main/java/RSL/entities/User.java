@@ -22,7 +22,7 @@ public class User {
     /**
      * Данные пользователя
      */
-
+    @Column(unique = true)
     private String login;
 
     private String password;

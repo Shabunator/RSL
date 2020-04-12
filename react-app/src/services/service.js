@@ -29,11 +29,7 @@ export default class  Service {
             init.body = Type.isString(body) ? body : JSON.stringify(body);
         }
 
-        console.log(init)
-
         const fetchedData = await fetch(URL, init);
-
-        console.log(fetchedData);
 
         return fetchedData.json();
     };

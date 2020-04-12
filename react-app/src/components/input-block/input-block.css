@@ -1,0 +1,52 @@
+.block-with-label {
+    display: flex;
+    box-sizing: border-box;
+    margin: 20px;
+    width: fit-content;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.block-with-label > div:first-child {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    padding: 10px;
+}
+
+.input-block-wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.input-block {
+    width: 300px;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 5px 40px 5px 20px;
+
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+    /*box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);*/
+}
+
+.input-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.input-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.nothing-to-clear {
+    display: none;
+}

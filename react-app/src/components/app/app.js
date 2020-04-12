@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import { Switch, Route } from "react-router-dom";
 import Header from "../header";
 import NewResume from "../pages/new-resume";
+import User from "../pages/user/user";
 
 const App = () => {
 
@@ -16,6 +17,8 @@ const App = () => {
             <Switch>
 
                 <Route exact path='/' component={Home} />
+
+                <Route exact path='/user' component={User} />
 
                 <Route exact path='/new-resume' component={NewResume} />
 

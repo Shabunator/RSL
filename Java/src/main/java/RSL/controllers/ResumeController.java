@@ -1,6 +1,5 @@
 package RSL.controllers;
 
-
 import RSL.entities.*;
 import RSL.models.EducationLevel;
 import RSL.models.Gender;
@@ -18,7 +17,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-@RestController(value = "resume")
+@RestController
 @RequestMapping("resume")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ResumeController {
@@ -26,10 +25,6 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
-    /**
-     * GetMaping - get запрос
-     * @return
-     */
     @GetMapping
     public RestResponse<List<Resume>> getAll() {
 
@@ -39,26 +34,27 @@ public class ResumeController {
 
             Integer id = i;
 
+
             ContactDetails contactDetails = new ContactDetails(
                     i,
-                    "firstName " + i,
-                    "lastName " + i,
-                    "residenceCity " + i
+                    "firstName_" + i,
+                    "lastName_" + i,
+                    "residenceCity_" + i
             );
 
             BasicInformation basicInformation = new BasicInformation(
                     i,
                     new Date(),
                     Gender.male,
-                    "nationality " + i,
+                    "nationality_" + i,
                     true
             );
 
             Specialty specialty = new Specialty(
                     i,
-                    "желаемая долженность",
+                    "желаемая должность " + i,
                     100.99,
-                    "профессиональная область"
+                    "профессиональная область " + i
             );
 
             List<WorkPlace> workPlaceList = new LinkedList<>();
@@ -66,44 +62,43 @@ public class ResumeController {
                     1,
                     new Date(),
                     new Date(),
-                    "организация " + i,
-                    "желаемая долженность " + i,
-                    "Уборка помещений " + i
+                    "organization_" + i,
+                    "position_" + i,
+                    "workplaceResponsibilities_" + i
             ));
 
             WorkExperience workExperience = new WorkExperience(
                     i,
                     workPlaceList,
-                    "танцор" + i,
-                    "играю в манчкин" + i
+                    "aboutMe_" + i,
+                    "skills_" + i
             );
 
             List<Education> educationList = new LinkedList<>();
             educationList.add(new Education(
                     i,
-                    EducationLevel.DOCTOR,
+                    EducationLevel.MASTER,
                     "Учебное заведение " + i,
-                    "Факулльтет",
+                    "Факультет_" + i,
                     new Date()
             ));
 
-             Language nativeLanguage = new Language(
-                     i,
-                     "Русский",
-                     LanguageProficiencyLevel.A1
-             );
+            Language nativeLanguage = new Language(
+                    i,
+                    "name_" + i,
+                    LanguageProficiencyLevel.A1
+            );
 
             List<Language> foreignLanguageList = new LinkedList<>();
             foreignLanguageList.add(new Language(
                     i + 1,
-                    "name " + (i + 1),
+                    "name_" + (i + 1),
                     LanguageProficiencyLevel.A2
             ));
 
-            String otherImportantInformation = "Дополнительная информация обо мне";
+            String otherImportantInformation = "другая важная информация " + i;
 
-
-            Resume resume = new Resume (
+            Resume resume = new Resume(
                     id,
                     contactDetails,
                     basicInformation,
@@ -120,11 +115,12 @@ public class ResumeController {
             resumeList.add(dbResume);
         }
 
+
+
         return new RestResponse<>(
                 HttpStatus.OK,
-                "OK",
+                "resumes were resolved",
                 resumeList
         );
     }
-
 }

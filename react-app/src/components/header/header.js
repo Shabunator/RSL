@@ -21,7 +21,7 @@ const Header = ({name}) => {
                 </div>
 
                 <div>
-                    Вадим Павлович Волга
+                    <Link to='/user'>Вадим Павлович Волга</Link>
                 </div>
 
              </div>

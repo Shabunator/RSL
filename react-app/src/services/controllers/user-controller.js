@@ -2,62 +2,35 @@ import Service from "../service";
 
 export default class UserController extends Service {
 
-    USER_URL = "users/";
+    USER_URL = "user/";
 
-    /** CRUD: ---------------------------------------------------------------------- */
-
-    getUserById = async (userId) => {
-        const response = await this.GET(this.USER_URL + userId);
+    save = async (user) => {
+        const response = await this.POST(this.USER_URL, user);
+        console.log(response);
         return this.promise(response);
     };
 
-    getUserByUsername = async (username) => {
-
-        console.log(username)
-
-        const response = await this.POST(this.USER_URL + "username", username);
-
-        console.log(response)
+    getByLogin = async (login) => {
+        const response = await this.GET(this.USER_URL + `login=${login}`);
+        console.log(response);
         return this.promise(response);
     };
 
-    updateUser = async (user) => {
-        const response = await this.PUT(this.USER_URL + user.id, user);
+    addResume = async (userId, resume) => {
+        const response = await this.PUT(this.USER_URL + `user=${userId}`, resume);
+        console.log(response);
         return this.promise(response);
     };
 
-    deleteUser = async (userId) => {
-        const response = await this.DELETE(this.USER_URL + userId);
+    deleteResume = async (userId, resume) => {
+        const response = await this.PUT(this.USER_URL + `user=${userId}&resume=${resume}`, resume);
+        console.log(response);
         return this.promise(response);
     };
 
-
-    /** NOTES: --------------------------------------------------------------------- */
-
-    saveNote = async (userId, note) => {
-        const response = await this.POST(this.USER_URL + userId + '/note', note);
-        return this.promise(response);
-    };
-
-    deleteNote = async (userId, note) => {
-        const response = await this.DELETE(this.USER_URL + userId + '/note', note);
-        return this.promise(response);
-    };
-
-    /** LABELS: -------------------------------------------------------------------- */
-
-    addLabel = async (userId, label) => {
-        const response = await this.POST(this.USER_URL + userId + '/label', label);
-        return this.promise(response);
-    };
-
-    removeLabel = async (userId, label) => {
-        const response = await this.DELETE(this.USER_URL + userId + '/label', label);
-        return this.promise(response);
-    };
-
-    updateLabel = async (userId, label) => {
-        const response = await this.PUT(this.USER_URL + userId + '/label', label);
+    delete = async (userId) => {
+        const response = await this.DELETE(this.USER_URL + `user=${userId}`);
+        console.log(response);
         return this.promise(response);
     };
 }
