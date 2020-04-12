@@ -6,6 +6,8 @@ import RSL.models.EducationLevel;
 import RSL.models.Gender;
 import RSL.models.LanguageProficiencyLevel;
 import RSL.models.RestResponse;
+import RSL.services.ResumeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,9 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ResumeController {
 
+    @Autowired
+    private ResumeService resumeService;
+
     /**
      * GetMaping - get запрос
      * @return
@@ -30,7 +35,7 @@ public class ResumeController {
 
         List<Resume> resumeList = new LinkedList<>();
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 1; i++) {
 
             Integer id = i;
 
@@ -98,7 +103,7 @@ public class ResumeController {
             String otherImportantInformation = "Дополнительная информация обо мне";
 
 
-            resumeList.add(new Resume(
+            Resume resume = new Resume (
                     id,
                     contactDetails,
                     basicInformation,
@@ -108,10 +113,18 @@ public class ResumeController {
                     nativeLanguage,
                     foreignLanguageList,
                     otherImportantInformation
-            ));
+            );
+
+            Resume dbResume = resumeService.save(resume);
+
+            resumeList.add(dbResume);
         }
 
-        return new RestResponse<>(HttpStatus.OK, "OK", resumeList);
+        return new RestResponse<>(
+                HttpStatus.OK,
+                "OK",
+                resumeList
+        );
     }
 
 }

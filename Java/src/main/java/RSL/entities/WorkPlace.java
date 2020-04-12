@@ -1,10 +1,10 @@
 package RSL.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 /**
@@ -12,6 +12,7 @@ import java.util.Date;
  */
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "work_place")
 public class WorkPlace {

@@ -1,6 +1,7 @@
 package RSL.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
  */
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "specialty")
 public class Specialty {

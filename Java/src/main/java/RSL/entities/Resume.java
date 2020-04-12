@@ -3,7 +3,6 @@ package RSL.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,40 +21,40 @@ public class Resume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ContactDetails contactDetails;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private BasicInformation basicInformation;
 
     /**
      * Дополнительня информация
      */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Specialty specialty;
 
     /**
      * Опыт работы
      */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private WorkExperience workExperience;
 
     /**
      * Образование
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Education> educationList;
 
     /**
      * Родной язык
      */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private  Language nativeLanguage;
 
     /**
      * Список иностранных языков
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Language> foreignLanguageList;
 
     /**

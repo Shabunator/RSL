@@ -2,6 +2,7 @@ package RSL.entities;
 
 import RSL.models.EducationLevel;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.checkerframework.checker.units.qual.A;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "education")
 public class Education {

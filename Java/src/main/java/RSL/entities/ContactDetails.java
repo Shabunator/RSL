@@ -1,6 +1,7 @@
 package RSL.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.checkerframework.checker.interning.qual.InternedDistinct;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "contact_details")
 public class ContactDetails {
 

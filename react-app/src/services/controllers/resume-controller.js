@@ -8,6 +8,9 @@ export default class ResumeController extends Service {
 
     getResumeList = async () => {
         const response = await this.GET(this.RESUME_URL);
+
+        console.log(response);
+
         return this.promise(response);
     };
 

@@ -3,6 +3,7 @@ package RSL.entities;
 import RSL.models.EducationLevel;
 import RSL.models.LanguageProficiencyLevel;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Data
 @Table(name = "language")
 public class Language {
 

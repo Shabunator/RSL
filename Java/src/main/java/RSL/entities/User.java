@@ -1,9 +1,17 @@
 package RSL.entities;
 
+import RSL.models.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -14,6 +22,7 @@ public class User {
     /**
      * Данные пользователя
      */
+
     private String login;
 
     private String password;
@@ -23,6 +32,6 @@ public class User {
     /**
      * Список резюме пользователя
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Resume> resumeList;
 }
