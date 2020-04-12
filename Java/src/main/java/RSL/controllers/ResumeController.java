@@ -4,6 +4,7 @@ package RSL.controllers;
 import RSL.entities.Resume;
 import RSL.models.RestResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController(value = "resume")
 @RequestMapping("resume")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ResumeController {
 
     /**
