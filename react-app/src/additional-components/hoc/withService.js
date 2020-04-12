@@ -7,13 +7,13 @@ const withService = (mapMethodsToProps) => (Wrapped) => {
         return (
             <AppConsumer>
                 {
-                    (controllers) => {
+                    (services) => {
                         let serviceProps = null;
 
-                        if (mapMethodsToProps) serviceProps = mapMethodsToProps(controllers);
+                        if (mapMethodsToProps) serviceProps = mapMethodsToProps(services);
 
                         return (
-                            <Wrapped {...props} {...serviceProps} controllers={controllers}/>
+                            <Wrapped {...props} {...serviceProps} services={services}/>
                         );
                     }
                 }

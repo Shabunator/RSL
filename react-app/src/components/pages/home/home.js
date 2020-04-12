@@ -1,7 +1,9 @@
 import React from "react";
 import ResumeList from "../../resume-list";
+import withService from "../../../additional-components/hoc/withService";
+import service from "../../../services/service";
 
-const Home = () => {
+const Home = ({resumeController}) => {
 
     const list = [
 
@@ -28,19 +30,31 @@ const Home = () => {
     ];
 
     const getData = () => {
-        return list;
+        resumeController.getResumeList()
+            .then((body) => {
+                console.log(body)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    };
 
-    }
+
 
     return (
         <div className='home'>
 
             <h1>Home</h1>
 
-            <ResumeList getData = {getData}/>
-
+            <ResumeList getData = {resumeController.getResumeList}/>
         </div>
     );
 };
 
-export default Home;
+const mapMethodsToProps = ({resumeController}) => {
+    return {
+        resumeController
+    };
+};
+
+export default withService(mapMethodsToProps)(Home);

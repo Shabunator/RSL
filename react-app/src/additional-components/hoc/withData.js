@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Spinner from "../spinner";
-import ErrorBoundary from "../error-boundary";
+import ErrorIndicator from "../error-indicator";
 
 const withData = (View) => {
 
@@ -37,7 +37,7 @@ const withData = (View) => {
 
             if (loading) return <Spinner/>;
 
-            if (error) return <ErrorBoundary/>;
+            if (error) return <ErrorIndicator/>;
 
             return <View {...this.props} data={data} />;
         }

@@ -58,11 +58,11 @@ export default class  Service {
 
         if (response) {
 
-            const {status, message, result} = response;
+            const {status, message, body} = response;
 
-            if (status !== 200) reject(new Error(message));
+            if (status !== "OK") reject(new Error(message));
 
-            resolve(result);
+            resolve(body);
         }
 
         reject(new Error("No response..."));
