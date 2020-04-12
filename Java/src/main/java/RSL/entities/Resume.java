@@ -43,8 +43,8 @@ public class Resume {
     /**
      * Образование
      */
-    @OneToOne
-    private Education education;
+    @OneToMany
+    private List<Education> educationList;
 
     /**
      * Родной язык
@@ -55,7 +55,7 @@ public class Resume {
     /**
      * Список иностранных языков
      */
-    @OneToOne
+    @OneToMany
     private List<Language> foreignLanguageList;
 
     /**

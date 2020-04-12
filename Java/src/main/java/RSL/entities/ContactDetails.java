@@ -1,5 +1,7 @@
 package RSL.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.checkerframework.checker.interning.qual.InternedDistinct;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 /**
  * Контактные данные
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "contact_details")
 public class ContactDetails {

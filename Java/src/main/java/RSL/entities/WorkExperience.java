@@ -1,11 +1,16 @@
 package RSL.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * Опыт работы
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "work_experience")
 public class WorkExperience {

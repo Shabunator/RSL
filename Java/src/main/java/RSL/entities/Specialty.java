@@ -1,10 +1,15 @@
 package RSL.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 /**
  * Специальность (если есть опыт работы)
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "specialty")
 public class Specialty {

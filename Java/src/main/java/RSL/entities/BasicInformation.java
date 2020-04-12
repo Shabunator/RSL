@@ -1,6 +1,8 @@
 package RSL.entities;
 
 import RSL.models.Gender;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +10,8 @@ import java.util.Date;
 /**
  * Основная информация
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "basic_information")
 public class BasicInformation {

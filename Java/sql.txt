@@ -6,6 +6,6 @@ USE resume_db;
 
 CREATE USER 'resume_db_admin'@'localhost' IDENTIFIED BY 'passwordForResumeDBAdmin';
 
-GRANT CREATE, SELECT, INSERT, UPDATE, DELETE ON resume_db . * TO 'resume_db_admin'@'localhost';
+GRANT REFERENCES, ALTER, CREATE, SELECT, INSERT, UPDATE, DELETE ON resume_db . * TO 'resume_db_admin'@'localhost';
 
-ALTER
+SHOW GRANTS FOR 'resume_db_admin'@'localhost';

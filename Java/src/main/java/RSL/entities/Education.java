@@ -1,10 +1,15 @@
 package RSL.entities;
 
 import RSL.models.EducationLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.checkerframework.checker.units.qual.A;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "education")
 public class Education {
